@@ -1,11 +1,11 @@
 [
   {
-    "cauHoi": "Câu 1?",
+    "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
     ],
     "dapAnDung": 1,
     "hinhAnh": "assets/images/img.png"
