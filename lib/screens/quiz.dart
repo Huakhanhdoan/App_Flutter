@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/model/question.dart';
 import 'package:second_app/model/quiz_model.dart';
+import 'package:second_app/screens/result.dart';
 
 class HoiDapPage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class HoiDapPage extends StatefulWidget {
 class _HoiDapPageState extends State<HoiDapPage> {
   final QuizModel model = QuizModel();
   List<Question> danhSachCauHoi = [];
+  double progress=0;
 
   void docCauHoi() async {
     danhSachCauHoi = await Question.docTuJson('./assets/JSON/list_question.json');
@@ -30,20 +32,40 @@ class _HoiDapPageState extends State<HoiDapPage> {
         body: Center(child: CircularProgressIndicator()),
       );
     }
-
+    if (model.cauHienTai == danhSachCauHoi.length) {
+      return ResultPage(model.diemSo, danhSachCauHoi.length);
+    }
+    progress = (model.cauHienTai.toDouble())/danhSachCauHoi.length.toDouble();
     Question cauHoi = danhSachCauHoi[model.cauHienTai];
 
     return Scaffold(
-        backgroundColor: Colors.teal[50],
+        backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        title: const Text('Tên ứng dụng'),
+        title: const Text(''),
         actions: <Widget>[
+          Center(
+            child:  Container(
+              width: 100,
+              height: 20,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: Colors.black, width: 2), // Đặt viền màu xanh
+              ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(18), // Đặt góc bo tròn cho LinearProgressIndicator
+          child: LinearProgressIndicator(
+            value: progress,
+            valueColor: const AlwaysStoppedAnimation<Color>(Colors.tealAccent),
+            backgroundColor: Colors.white70,
+          ),
+            ),
+          ),
+          ),
           Padding(
-            padding: const EdgeInsets.all(0),
-            child: Center(
+            padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
               child: Container(
-                width: 120,
-                height: 100,
+                width: 100,
+                height: 80,
                 decoration: BoxDecoration(
                   color: Colors.green, // Đặt màu nền
                   borderRadius: BorderRadius.circular(40), // Đặt góc bo tròn
@@ -58,7 +80,6 @@ class _HoiDapPageState extends State<HoiDapPage> {
                     duration: const Duration(milliseconds: 200), // Thời gian của hiệu ứng
                     child: Text('Điểm: ${model.diemSo}'),
                   ),
-                ),
               ),
             ),
           )
