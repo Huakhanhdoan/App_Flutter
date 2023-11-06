@@ -39,7 +39,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
     Question cauHoi = danhSachCauHoi[model.cauHienTai];
 
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.amber[50],
       appBar: AppBar(
         title: const Text(''),
         actions: <Widget>[
@@ -67,7 +67,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
                 width: 100,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.green, // Đặt màu nền
+                  color: Colors.lightBlue, // Đặt màu nền
                   borderRadius: BorderRadius.circular(40), // Đặt góc bo tròn
                 ),
                 child: Center(

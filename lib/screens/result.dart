@@ -27,7 +27,7 @@ class ResultPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));
                 // Thực hiện hành động nào đó khi người chơi muốn chơi lại
               },
               child: Text('Chơi Lại'),
