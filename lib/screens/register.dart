@@ -34,6 +34,7 @@ class _RegisterState extends State<Register> {
     prefs.setString('userName', userName);
     prefs.setInt('userAge', userAge);
     prefs.setString('userGender', userGender);
+    prefs.setBool('hasUserData', true);
   }
 
   void goBack() {
@@ -50,7 +51,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg_res.jpg'),
+            image: AssetImage('assets/images/bg3.jpg'),
             fit: BoxFit.cover,
           ),
         ),

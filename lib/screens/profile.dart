@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'home_page.dart';
+
 class ProfilePage extends StatelessWidget {
   Future<Map<String, dynamic>> getUserInfoFromPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -85,6 +87,49 @@ class ProfilePage extends StatelessWidget {
               );
             }
           },
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+
+            IconButton(
+              icon: const Icon(Icons.leaderboard), // Biểu tượng sẽ thừa kế các giá trị từ IconButtonTheme
+              onPressed: () {
+                // Xử lý khi bấm vào biểu tượng
+              },
+            ),
+
+
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: ()  {
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+                // Xử lý khi bấm vào icon trợ giúp
+              },
+            ),
+
+
+
+            IconButton(
+              icon: const Icon(Icons.volume_mute),
+              onPressed: () {
+                // Xử lý khi bấm vào icon trợ giúp
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                // Xử lý khi bấm vào icon cài đặt
+              },
+            ),
+          ],
         ),
       ),
     );
