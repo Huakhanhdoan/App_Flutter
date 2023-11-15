@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orangeAccent,
           title: const Text('Trang Chủ'),
           actions: <Widget> [
             IconButton(
@@ -40,9 +41,10 @@ class _HomePageState extends State<HomePage> {
             height: double.infinity,
             fit: BoxFit.cover,
           ),
-          _buildLocationButton(125, 100, 'Bắc'),
-          _buildLocationButton(180, 250, 'Trung'),
-          _buildLocationButton(180, 380, 'Nam'),
+          _buildLocationButton(0.35, 0.15, 'Bắc'),
+          _buildLocationButton(0.55, 0.4, 'Trung'),
+          _buildLocationButton(0.45, 0.6, 'Nam'),
+          _buildMessageCard()
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -59,15 +61,15 @@ class _HomePageState extends State<HomePage> {
 
 
             IconButton(
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               onPressed: ()  {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
               },
             ),
 
             ElevatedButton(
-              onPressed: (selectedLocation != null) ? () { startQuiz(); } : null,
-              child: Text('Khám phá'),
+              onPressed: (selectedLocation != null) ? () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));; } : null,
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
                   if (states.contains(MaterialState.disabled)) {
@@ -75,31 +77,18 @@ class _HomePageState extends State<HomePage> {
                   }
                   return Colors.blue; // Màu nền khi nút hoạt động
                 }),
-                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                  EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Khoảng cách giữa nội dung và viền
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // Độ cong của góc
-                  ),
-                ),
+
                 textStyle: MaterialStateProperty.all<TextStyle>(
                   const TextStyle(
                     fontSize: 20, // Kích thước chữ
                     fontWeight: FontWeight.bold, // Độ đậm của chữ
                   ),
                 ),
-                // Tạo bóng cho nút
-                shadowColor: MaterialStateProperty.resolveWith<Color>((states) {
-                  if (states.contains(MaterialState.disabled)) {
-                    return Colors.grey; // Màu bóng khi nút không hoạt động
-                  }
-                  return Colors.blue.shade200; // Màu bóng khi nút hoạt động
-                }),
-                elevation: MaterialStateProperty.all<double>(8.0), // Độ nâng của bóng
-              ),
-            ),
 
+              ),
+              child: Text('Khám phá'),
+
+            ),
 
 
             IconButton(
@@ -119,35 +108,56 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  void startQuiz() {
-    if (selectedLocation == null) {
-      // Hiển thị thông báo khi không có địa điểm nào được chọn
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Vui lòng chọn một địa điểm trước khi bắt đầu.'),
-        ),
-      );
-    } else {
-      // Nếu đã chọn địa điểm, thì điều hướng đến trang câu hỏi
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));
-    }
-  }
-  Widget _buildLocationButton(double left, double top, String location) {
+
+  Widget _buildLocationButton(double leftFactor, double topFactor, String location) {
     return Positioned(
-      left: left,
-      top: top,
-      child: ElevatedButton(
+      left: MediaQuery.of(context).size.width * leftFactor,
+      top: MediaQuery.of(context).size.height * topFactor,
+      child: ElevatedButton.icon(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(selectedLocation == location ? Colors.orange : Colors.amber[50]),
+          backgroundColor: MaterialStateProperty.all(selectedLocation == location ? Colors.green : Colors.amber[200]),
         ),
         onPressed: () {
           setState(() {
             selectedLocation = location;
           });
         },
-        child: Text(location),
+        icon: const Icon(Icons.location_on),
+        label: Text(location),
       ),
     );
   }
+  Widget _buildMessageCard() {
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.05,
+      top: MediaQuery.of(context).size.height * 0.01,
+      child: Visibility(
+        visible: selectedLocation == null,
+        child:  Row(
+          children: [
+            Image.asset(
+              "assets/images/notification.gif",
+              height: 100.0,
+              width: 100.0,
+            ),
+            Card(
+              elevation: 8.0, // Độ nâng của bóng
+              color: Colors.yellow.shade200, // Màu nền của thẻ
+              child: const Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'Hãy chọn một địa điểm!',
+                  style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+
+          ],
+        ),
+
+      ),
+    );
+  }
+ 
 }
 
