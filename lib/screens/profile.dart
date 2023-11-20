@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'home_page.dart';
+import 'navigationbar.dart';
 
 class ProfilePage extends StatelessWidget {
   Future<Map<String, dynamic>> getUserInfoFromPrefs() async {
@@ -9,11 +8,13 @@ class ProfilePage extends StatelessWidget {
     String userName = prefs.getString('userName') ?? "";
     int userAge = prefs.getInt('userAge') ?? 0;
     String userGender = prefs.getString('userGender') ?? "";
+    int sum_score = prefs.getInt('sum_score') ?? 0;
 
     return {
       'userName': userName,
       'userAge': userAge,
       'userGender': userGender,
+      'sum_score': sum_score,
     };
   }
 
@@ -74,11 +75,11 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16.0),
-                  const Center(
+                   Center(
                     child: Text(
-                      'Điểm Số: 100',
-                      // Thay đổi để lấy điểm số thực tế từ nơi nào đó
-                      style: TextStyle(
+                      'Điểm Số: ${userInfo['sum_score']}',
+
+                      style: const TextStyle(
                         fontSize: 18.0,
                       ),
                     ),
@@ -89,49 +90,7 @@ class ProfilePage extends StatelessWidget {
           },
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-
-            IconButton(
-              icon: const Icon(Icons.leaderboard), // Biểu tượng sẽ thừa kế các giá trị từ IconButtonTheme
-              onPressed: () {
-                // Xử lý khi bấm vào biểu tượng
-              },
-            ),
-
-
-            IconButton(
-              icon: Icon(Icons.person),
-              onPressed: ()  {
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.home),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
-                // Xử lý khi bấm vào icon trợ giúp
-              },
-            ),
-
-
-
-            IconButton(
-              icon: const Icon(Icons.volume_mute),
-              onPressed: () {
-                // Xử lý khi bấm vào icon trợ giúp
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                // Xử lý khi bấm vào icon cài đặt
-              },
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavigationBar1(),
     );
   }
 }

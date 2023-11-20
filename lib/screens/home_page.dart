@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
 
                 textStyle: MaterialStateProperty.all<TextStyle>(
                   const TextStyle(
+                    fontFamily: 'Press Start 2P',
                     fontSize: 20, // Kích thước chữ
                     fontWeight: FontWeight.bold, // Độ đậm của chữ
                   ),
@@ -129,33 +130,33 @@ class _HomePageState extends State<HomePage> {
   }
   Widget _buildMessageCard() {
     return Positioned(
-      left: MediaQuery.of(context).size.width * 0.05,
-      top: MediaQuery.of(context).size.height * 0.01,
-      child: Visibility(
-        visible: selectedLocation == null,
-        child:  Row(
-          children: [
-            Image.asset(
-              "assets/images/notification.gif",
-              height: 100.0,
-              width: 100.0,
-            ),
-            Card(
-              elevation: 8.0, // Độ nâng của bóng
-              color: Colors.yellow.shade200, // Màu nền của thẻ
-              child: const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Hãy chọn một địa điểm!',
-                  style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),
+        left: MediaQuery.of(context).size.width * 0.05,
+        top: MediaQuery.of(context).size.height * 0.01,
+        child: Visibility(
+          visible: selectedLocation == null,
+          child:  Row(
+            children: [
+              Image.asset(
+                "assets/images/notification.gif",
+                height: 100.0,
+                width: 100.0,
+              ),
+              Card(
+                elevation: 8.0, // Độ nâng của bóng
+                color: Colors.yellow.shade200, // Màu nền của thẻ
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'Hãy chọn một địa điểm!',
+                    style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
 
-          ],
+            ],
+          ),
+
         ),
-
-      ),
     );
   }
 
