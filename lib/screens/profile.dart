@@ -14,6 +14,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   String avatarPath = "";
+
   @override
   void initState() {
     super.initState();
@@ -26,8 +27,10 @@ class _ProfilePageState extends State<ProfilePage> {
       avatarPath = prefs.getString('avatarPath') ?? "";
     });
   }
+
   Future<void> _pickImage() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (pickedFile != null) {
@@ -44,24 +47,28 @@ class _ProfilePageState extends State<ProfilePage> {
     int userAge = prefs.getInt('userAge') ?? 0;
     String userGender = prefs.getString('userGender') ?? "";
     int sum_score = prefs.getInt('sum_score') ?? 0;
+    bool mendal_bac = prefs.getBool('bac') ?? false;
+    bool mendal_trung = prefs.getBool('trung') ?? false;
+    bool mendal_nam = prefs.getBool('nam') ?? false;
 
     return {
       'userName': userName,
       'userAge': userAge,
       'userGender': userGender,
       'sum_score': sum_score,
+      'bac': mendal_bac,
+      'trung': mendal_trung,
+      'nam': mendal_nam
     };
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body:
-      Container(
-        decoration:  const BoxDecoration(
+      body: Container(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg_res.jpg'),
+            image: AssetImage('assets/images/bg.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -76,31 +83,34 @@ class _ProfilePageState extends State<ProfilePage> {
               Map<String, dynamic> userInfo = snapshot.data!;
               return ListView(
                 children: [
-
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Stack(
-
-                        children:[  CircleAvatar(
+                      Stack(children: [
+                        CircleAvatar(
                           radius: 50.0,
                           backgroundImage: avatarPath.isEmpty
-                              ? const AssetImage('assets/images/user.png') // Ảnh mặc định nếu không có avatar
-                              : Image.file(File(avatarPath)).image, // Hiển thị ảnh từ đường dẫn đã lưu
+                              ? const AssetImage(
+                                  'assets/images/user.png') // Ảnh mặc định nếu không có avatar
+                              : Image.file(File(avatarPath))
+                                  .image, // Hiển thị ảnh từ đường dẫn đã lưu
                         ),
-                          Positioned(
-                            bottom: -10,
-                            right: -10,
-                            child: IconButton(
-                              icon: Icon(Icons.edit,size: 30,color: Colors.white,),
-                              onPressed: _pickImage,
+                        Positioned(
+                          bottom: -10,
+                          right: -10,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.edit,
+                              size: 30,
+                              color: Colors.white,
                             ),
+                            onPressed: _pickImage,
                           ),
-            ]
-
-                      ),
-
+                        ),
+                      ]),
                       const SizedBox(height: 16.0),
                       Text(
                         userInfo['userName'] ?? '',
@@ -111,7 +121,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       const SizedBox(height: 8.0),
-
                       Text(
                         'Tuổi: ${userInfo['userAge']}',
                         style: const TextStyle(
@@ -120,20 +129,19 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       const SizedBox(height: 8.0),
-
-                        Row(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                           const Icon(Icons.people),
-                           Text(
-                                ' Giới Tính: ${userInfo['userGender']}',
-                                style:  const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.people),
+                          Text(
+                            ' Giới Tính: ${userInfo['userGender']}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
                             ),
-                         ],
-                       ),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 16.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -142,15 +150,74 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             'Điểm Số: ${userInfo['sum_score']}',
                             style: const TextStyle(
-                              fontSize: 25.0,
-                              color: Colors.deepOrange,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 25.0,
+                                color: Colors.deepOrange,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Visibility(
+                              visible: userInfo['bac'],
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/huychuong1.png",
+                                    width: 100,
+                                    height: 100,
+                                  ),
+                                  const Text(
+                                    "Bắc",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.white),
+                                  )
+                                ],
+                              )),
+                          Visibility(
+                              visible: userInfo['trung'],
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/huychuong2.png",
+                                    width: 100,
+                                    height: 100,
+                                  ),
+                                  const Text(
+                                    "Trung",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.red
+                                    ),
+                                  )
+                                ],
+                              )),
+                          Visibility(
+                              visible: userInfo['nam'],
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/huychuong3.png",
+                                    width: 100,
+                                    height: 100,
+                                  ),
+                                  const Text(
+                                    "Nam",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.yellow),
+                                  )
+                                ],
+                              )),
+                        ],
+                      ),
                       const SizedBox(
-                        height: 100,
+                        height: 20,
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
@@ -169,8 +236,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ],
                   ),
-
-
                 ],
               );
             }

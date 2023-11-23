@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:second_app/model/question.dart';
 
 class QuizModel {
+  String location ="";
   int diemSo = 0;
   int cauHienTai = 0;
   bool isChoose = false; // kiểm tra xem đã chọn đáp án chưa
   bool isCorrect = false; // check xem đáp án chọn đúng hay sai
-
+QuizModel(this.location) {
+  if(location == "Trung") {
+    cauHienTai = 2;
+  }
+  if(location=="Nam") {
+    cauHienTai=3;
+  }
+}
   List<Color> color_answer = [
     Colors.white,
     Colors.white,

@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:second_app/screens/profile.dart';
 import 'package:second_app/screens/quiz.dart';
 
 import 'navigationbar.dart';
@@ -74,7 +73,7 @@ class _HomePageState extends State<HomePage> {
             visible: selectedLocation==location,
             child:  ElevatedButton(
               onPressed:  () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));;
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage(location)));;
                 } ,
 
               child: const Text('Khám phá',

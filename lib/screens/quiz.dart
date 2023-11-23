@@ -1,15 +1,19 @@
+
 import 'package:flutter/material.dart';
 import 'package:second_app/model/question.dart';
 import 'package:second_app/model/quiz_model.dart';
 import 'package:second_app/screens/result.dart';
 
 class HoiDapPage extends StatefulWidget {
+   final String Location;
+  HoiDapPage(this.Location);
   @override
   _HoiDapPageState createState() => _HoiDapPageState();
 }
 
 class _HoiDapPageState extends State<HoiDapPage> {
-  final QuizModel model = QuizModel();
+ String location = "";
+ late final QuizModel model;
   List<Question> danhSachCauHoi = [];
   double progress = 0;
 
@@ -23,6 +27,8 @@ class _HoiDapPageState extends State<HoiDapPage> {
   @override
   void initState() {
     super.initState();
+    location = widget.Location;
+     model = QuizModel(location);
     docCauHoi();
   }
 
@@ -34,7 +40,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
       );
     }
     if (model.cauHienTai == danhSachCauHoi.length) {
-      return ResultPage(model.diemSo, danhSachCauHoi.length);
+      return ResultPage(model.diemSo, danhSachCauHoi.length,location);
     }
     progress = (model.cauHienTai.toDouble()) / danhSachCauHoi.length.toDouble();
     Question cauHoi = danhSachCauHoi[model.cauHienTai];
