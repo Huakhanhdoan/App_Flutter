@@ -14,7 +14,8 @@ class _HoiDapPageState extends State<HoiDapPage> {
   double progress = 0;
 
   void docCauHoi() async {
-    danhSachCauHoi = await Question.docTuJson('./assets/JSON/list_question.json');
+    danhSachCauHoi =
+        await Question.docTuJson('./assets/JSON/list_question.json');
     print('Số lượng câu hỏi: ${danhSachCauHoi.length}');
     setState(() {});
   }
@@ -39,17 +40,18 @@ class _HoiDapPageState extends State<HoiDapPage> {
     Question cauHoi = danhSachCauHoi[model.cauHienTai];
 
     return Scaffold(
-
       body: Column(
         children: [
-          const SizedBox(height: 25),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
           Container(
             color: Colors.yellow.shade100,
             height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-
+                const Icon(Icons.run_circle_sharp,color: Colors.teal,),
                 Container(
                   width: 100,
                   height: 20,
@@ -61,7 +63,8 @@ class _HoiDapPageState extends State<HoiDapPage> {
                     borderRadius: BorderRadius.circular(18),
                     child: LinearProgressIndicator(
                       value: progress,
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.tealAccent),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          Colors.tealAccent),
                       backgroundColor: Colors.white70,
                     ),
                   ),
@@ -71,7 +74,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
                   child: Container(
                     width: 100,
                     decoration: BoxDecoration(
-                      color: Colors.lightBlue,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: Center(
@@ -116,27 +119,28 @@ class _HoiDapPageState extends State<HoiDapPage> {
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
                             'Câu hỏi ${model.cauHienTai + 1}: ${cauHoi.cauHoi}',
-                            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(height: 20),
                         Container(
-                          margin:const EdgeInsets.fromLTRB(50, 0, 50, 0) ,
+                          margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
                           width: 350.0,
                           height: 150.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-
-                          image: DecorationImage(
-                            image: AssetImage(cauHoi.hinhAnh),
-                            fit: BoxFit.cover,
-                          ),
+                            image: DecorationImage(
+                              image: AssetImage(cauHoi.hinhAnh),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           // child: Image.asset(cauHoi.hinhAnh),
                         ),
                         const SizedBox(height: 25),
                         GridView.builder(
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             childAspectRatio: 2.0,
                           ),
@@ -149,7 +153,8 @@ class _HoiDapPageState extends State<HoiDapPage> {
                               child: ListTile(
                                 title: Text(cauHoi.luaChon[i]),
                                 onTap: () {
-                                  model.xuLyTraLoi(i + 1, danhSachCauHoi[model.cauHienTai]);
+                                  model.xuLyTraLoi(
+                                      i + 1, danhSachCauHoi[model.cauHienTai]);
                                   setState(() {});
                                 },
                               ),

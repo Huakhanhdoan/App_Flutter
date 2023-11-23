@@ -1,8 +1,9 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:second_app/screens/profile.dart';
 import 'package:second_app/screens/quiz.dart';
+
+import 'navigationbar.dart';
 
 
 
@@ -47,66 +48,7 @@ class _HomePageState extends State<HomePage> {
           _buildMessageCard()
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-
-            IconButton(
-              icon: const Icon(Icons.leaderboard), // Biểu tượng sẽ thừa kế các giá trị từ IconButtonTheme
-              onPressed: () {
-                // Xử lý khi bấm vào biểu tượng
-              },
-            ),
-
-
-            IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: ()  {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
-              },
-            ),
-
-            ElevatedButton(
-              onPressed: (selectedLocation != null) ? () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));; } : null,
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-                  if (states.contains(MaterialState.disabled)) {
-                    return Colors.grey; // Màu nền khi nút không hoạt động
-                  }
-                  return Colors.blue; // Màu nền khi nút hoạt động
-                }),
-
-                textStyle: MaterialStateProperty.all<TextStyle>(
-                  const TextStyle(
-                    fontFamily: 'Press Start 2P',
-                    fontSize: 20, // Kích thước chữ
-                    fontWeight: FontWeight.bold, // Độ đậm của chữ
-                  ),
-                ),
-
-              ),
-              child: Text('Khám phá'),
-
-            ),
-
-
-            IconButton(
-              icon: const Icon(Icons.volume_mute),
-              onPressed: () {
-                // Xử lý khi bấm vào icon trợ giúp
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                // Xử lý khi bấm vào icon cài đặt
-              },
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavigationBar1(),
     );
   }
 
@@ -114,17 +56,36 @@ class _HomePageState extends State<HomePage> {
     return Positioned(
       left: MediaQuery.of(context).size.width * leftFactor,
       top: MediaQuery.of(context).size.height * topFactor,
-      child: ElevatedButton.icon(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(selectedLocation == location ? Colors.green : Colors.amber[200]),
-        ),
-        onPressed: () {
-          setState(() {
-            selectedLocation = location;
-          });
-        },
-        icon: const Icon(Icons.location_on),
-        label: Text(location),
+      child: Column(
+        children: [
+          ElevatedButton.icon(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(selectedLocation == location ? Colors.green : Colors.amber[200]),
+            ),
+            onPressed: () {
+              setState(() {
+                selectedLocation = location;
+              });
+            },
+            icon: const Icon(Icons.location_on),
+            label: Text(location),
+          ),
+          Visibility(
+            visible: selectedLocation==location,
+            child:  ElevatedButton(
+              onPressed:  () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HoiDapPage()));;
+                } ,
+
+              child: const Text('Khám phá',
+                style:TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold,
+                ),
+              ),
+
+            ),
+          ),
+        ],
       ),
     );
   }

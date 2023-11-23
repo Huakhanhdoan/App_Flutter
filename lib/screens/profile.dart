@@ -1,8 +1,43 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:second_app/screens/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'navigationbar.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  String avatarPath = "";
+  @override
+  void initState() {
+    super.initState();
+    _loadAvatarPath();
+  }
+
+  Future<void> _loadAvatarPath() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      avatarPath = prefs.getString('avatarPath') ?? "";
+    });
+  }
+  Future<void> _pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if (pickedFile != null) {
+      setState(() {
+        avatarPath = pickedFile.path;
+        prefs.setString('avatarPath', avatarPath);
+      });
+    }
+  }
+
   Future<Map<String, dynamic>> getUserInfoFromPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String userName = prefs.getString('userName') ?? "";
@@ -21,8 +56,10 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
+
+      body:
+      Container(
+        decoration:  const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/bg_res.jpg'),
             fit: BoxFit.cover,
@@ -39,14 +76,31 @@ class ProfilePage extends StatelessWidget {
               Map<String, dynamic> userInfo = snapshot.data!;
               return ListView(
                 children: [
+
+                  const SizedBox(height: 50,),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const CircleAvatar(
-                        radius: 50.0,
-                        backgroundImage: AssetImage(
-                            'assets/images/user.png'), // Đường dẫn avatar
+                      Stack(
+
+                        children:[  CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage: avatarPath.isEmpty
+                              ? const AssetImage('assets/images/user.png') // Ảnh mặc định nếu không có avatar
+                              : Image.file(File(avatarPath)).image, // Hiển thị ảnh từ đường dẫn đã lưu
+                        ),
+                          Positioned(
+                            bottom: -10,
+                            right: -10,
+                            child: IconButton(
+                              icon: Icon(Icons.edit,size: 30,color: Colors.white,),
+                              onPressed: _pickImage,
+                            ),
+                          ),
+            ]
+
                       ),
+
                       const SizedBox(height: 16.0),
                       Text(
                         userInfo['userName'] ?? '',
@@ -57,6 +111,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8.0),
+
                       Text(
                         'Tuổi: ${userInfo['userAge']}',
                         style: const TextStyle(
@@ -65,25 +120,57 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8.0),
-                      Text(
-                        'Giới Tính: ${userInfo['userGender']}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                        ),
+
+                        Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           const Icon(Icons.people),
+                           Text(
+                                ' Giới Tính: ${userInfo['userGender']}',
+                                style:  const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                ),
+                            ),
+                         ],
+                       ),
+                      const SizedBox(height: 16.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.sports_score),
+                          Text(
+                            'Điểm Số: ${userInfo['sum_score']}',
+                            style: const TextStyle(
+                              fontSize: 25.0,
+                              color: Colors.deepOrange,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 100,
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Register(),
+                            ),
+                          ).then((value) {
+                            // Cập nhật lại trang profile sau khi chỉnh sửa
+                            setState(() {});
+                          });
+                        },
+                        icon: const Icon(Icons.edit),
+                        label: const Text('Chỉnh Sửa'),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16.0),
-                   Center(
-                    child: Text(
-                      'Điểm Số: ${userInfo['sum_score']}',
 
-                      style: const TextStyle(
-                        fontSize: 18.0,
-                      ),
-                    ),
-                  ),
+
                 ],
               );
             }
