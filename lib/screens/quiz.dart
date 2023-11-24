@@ -4,6 +4,8 @@ import 'package:second_app/model/question.dart';
 import 'package:second_app/model/quiz_model.dart';
 import 'package:second_app/screens/result.dart';
 
+import '../model/audio.dart';
+
 class HoiDapPage extends StatefulWidget {
    final String Location;
   HoiDapPage(this.Location);
@@ -13,6 +15,8 @@ class HoiDapPage extends StatefulWidget {
 
 class _HoiDapPageState extends State<HoiDapPage> {
  String location = "";
+ AudioManager _audioManager = new AudioManager();
+
  late final QuizModel model;
   List<Question> danhSachCauHoi = [];
   double progress = 0;
@@ -24,8 +28,11 @@ class _HoiDapPageState extends State<HoiDapPage> {
     setState(() {});
   }
 
+
   @override
   void initState() {
+    _audioManager.playSound('sound_track');
+    _audioManager.Loop();
     super.initState();
     location = widget.Location;
      model = QuizModel(location);
@@ -40,6 +47,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
       );
     }
     if (model.cauHienTai == danhSachCauHoi.length) {
+      _audioManager.stop();
       return ResultPage(model.diemSo, danhSachCauHoi.length,location);
     }
     progress = (model.cauHienTai.toDouble()) / danhSachCauHoi.length.toDouble();

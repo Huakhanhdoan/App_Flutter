@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:second_app/model/audio.dart';
 import 'package:second_app/model/question.dart';
 
 class QuizModel {
+  AudioManager _audioManager = new AudioManager();
   String location ="";
   int diemSo = 0;
   int cauHienTai = 0;
@@ -27,6 +30,7 @@ QuizModel(this.location) {
     isChoose = false;
     cauHienTai++;
     resetColors();
+    _audioManager.stop();
   }
 
   void xuLyTraLoi(int luaChon, Question question) {
@@ -35,9 +39,11 @@ QuizModel(this.location) {
       int dapAn = question.dapAnDung;
 
       if (luaChon == dapAn) {
+        _audioManager.playSound('success');
         isCorrect = true;
         diemSo++;
       } else {
+        _audioManager.playSound('wrong');
         isCorrect = false;
         switch (luaChon) {
           case 1:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/screens/quiz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../model/audio.dart';
 import 'navigationbar.dart';
 
 class ResultPage extends StatefulWidget {
@@ -19,10 +20,12 @@ class _ResultPageState extends State<ResultPage> {
   late int tongSoCauHoi; // Tổng số câu hỏi (chuyển từ widget sang state)
   String path = "";
   String _location = "";
+  AudioManager _audioManager = new AudioManager();
 
   @override
   void initState() {
     super.initState();
+    _audioManager.playSound('result');
     diemSo = widget.diemSo;
     tongSoCauHoi = widget.tongSoCauHoi;
     path = check_huyChuong();
