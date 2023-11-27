@@ -64,5 +64,280 @@
     ],
     "dapAnDung": 3,
     "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 2?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 2,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Câu 3?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 4?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 5?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Câu 6?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 2?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 2,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Câu 3?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 4?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Câu 5?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Câu 6?",
+    "luaChon": [
+      "Lựa chọn 1",
+      "Lựa chọn 2",
+      "Lựa chọn 3",
+      "Lựa chọn 4"
+    ],
+    "dapAnDung": 3,
+    "hinhAnh": "assets/images/chua1cot.jpg"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
+  },
+  {
+    "cauHoi": "Đây là đâu ?",
+    "luaChon": [
+      "Hello world",
+      "Answer 2",
+      "Vietnam",
+      "China"
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/img.png"
   }
 ]

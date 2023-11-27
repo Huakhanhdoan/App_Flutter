@@ -1,21 +1,22 @@
 
 import 'package:flutter/material.dart';
-import 'package:second_app/model/audio.dart';
-import 'package:second_app/model/question.dart';
+import 'package:second_app/audio/audio.dart';
+import 'package:second_app/repository/question.dart';
 
 class QuizModel {
   AudioManager _audioManager = new AudioManager();
   String location ="";
   int diemSo = 0;
+  int count =0;
   int cauHienTai = 0;
   bool isChoose = false; // kiểm tra xem đã chọn đáp án chưa
   bool isCorrect = false; // check xem đáp án chọn đúng hay sai
 QuizModel(this.location) {
   if(location == "Trung") {
-    cauHienTai = 2;
+    cauHienTai = 10;
   }
   if(location=="Nam") {
-    cauHienTai=3;
+    cauHienTai=20;
   }
 }
   List<Color> color_answer = [
@@ -28,6 +29,7 @@ QuizModel(this.location) {
   void chuyenCauHoi() {
     isCorrect = false;
     isChoose = false;
+    count++;
     cauHienTai++;
     resetColors();
     _audioManager.stop();

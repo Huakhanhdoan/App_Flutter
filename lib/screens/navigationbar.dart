@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/screens/profile.dart';
 
-import '../model/audio.dart';
+import '../audio/audio.dart';
+import '../audio/setting.dart';
 import 'home_page.dart';
 
 class NavigationBar1 extends StatefulWidget {
@@ -10,20 +11,13 @@ class NavigationBar1 extends StatefulWidget {
 }
 
 class _NavigationBar1State extends State<NavigationBar1> {
-  AudioManager _audioManager = new AudioManager();
+  final AudioManager _audioManager = new AudioManager();
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
 
-        IconButton(
-          icon: const Icon(Icons.leaderboard), // Biểu tượng sẽ thừa kế các giá trị từ IconButtonTheme
-          onPressed: () {
-            _audioManager.playSound("click");
-            // Xử lý khi bấm vào biểu tượng
-          },
-        ),
 
 
         IconButton(
@@ -45,17 +39,12 @@ class _NavigationBar1State extends State<NavigationBar1> {
 
 
 
-        IconButton(
-          icon: const Icon(Icons.volume_mute),
-          onPressed: () {
-            _audioManager.playSound("click");
-            // Xử lý khi bấm vào icon trợ giúp
-          },
-        ),
+
         IconButton(
 
           icon: const Icon(Icons.settings),
           onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoundSetting()));
             _audioManager.playSound("click");
             // Xử lý khi bấm vào icon cài đặt
           },

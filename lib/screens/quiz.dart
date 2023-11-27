@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:second_app/model/question.dart';
+import 'package:second_app/repository/question.dart';
 import 'package:second_app/model/quiz_model.dart';
 import 'package:second_app/screens/result.dart';
 
-import '../model/audio.dart';
+import '../audio/audio.dart';
 
 class HoiDapPage extends StatefulWidget {
    final String Location;
@@ -46,11 +46,11 @@ class _HoiDapPageState extends State<HoiDapPage> {
         body: Center(child: CircularProgressIndicator()),
       );
     }
-    if (model.cauHienTai == danhSachCauHoi.length) {
+    if (model.count==10) {
       _audioManager.stop();
-      return ResultPage(model.diemSo, danhSachCauHoi.length,location);
+      return ResultPage(model.diemSo,location);
     }
-    progress = (model.cauHienTai.toDouble()) / danhSachCauHoi.length.toDouble();
+    progress = (model.cauHienTai.toDouble())%10 / 10.0;
     Question cauHoi = danhSachCauHoi[model.cauHienTai];
 
     return Scaffold(
@@ -132,7 +132,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
                         Container(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
-                            'Câu hỏi ${model.cauHienTai + 1}: ${cauHoi.cauHoi}',
+                            'Câu hỏi ${model.count+1}: ${cauHoi.cauHoi}',
                             style: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),

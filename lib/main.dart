@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:second_app/screens/home_page.dart';
 import 'package:second_app/screens/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,7 +8,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool hasUserData = prefs.getBool('hasUserData') ?? false;
-
+await Future.delayed(Duration(seconds: 10));
+FlutterNativeSplash.remove();
   runApp(MyApp(hasUserData: hasUserData));
 }
 

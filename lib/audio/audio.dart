@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 class AudioManager {
   late AudioPlayer _audioPlayer;
 String soundName = "";
+  static bool isTrack= true;
 
 
   AudioManager() {
@@ -43,7 +44,14 @@ String soundName = "";
       case 'result':
         return 'audio/result.wav';
       case 'sound_track':
-        return 'audio/sound_track.wav';
+        {
+          if(isTrack) {
+            return 'audio/sound_track.wav';
+          }
+          else {
+            return "";
+          }
+        }
     // Thêm các trường hợp khác tại đây nếu cần thiết
       default:
         return '';

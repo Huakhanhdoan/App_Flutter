@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/screens/quiz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../model/audio.dart';
+import '../audio/audio.dart';
 import 'navigationbar.dart';
 
 class ResultPage extends StatefulWidget {
   final int diemSo; // Số điểm của người chơi
-  final int tongSoCauHoi; // Tổng số câu hỏi
   final String location;
 
-  ResultPage(this.diemSo, this.tongSoCauHoi, this.location);
+  ResultPage(this.diemSo, this.location);
 
   @override
   _ResultPageState createState() => _ResultPageState();
@@ -20,6 +19,7 @@ class _ResultPageState extends State<ResultPage> {
   late int tongSoCauHoi; // Tổng số câu hỏi (chuyển từ widget sang state)
   String path = "";
   String _location = "";
+  String nextLocation = "";
   AudioManager _audioManager = new AudioManager();
 
   @override
@@ -27,8 +27,8 @@ class _ResultPageState extends State<ResultPage> {
     super.initState();
     _audioManager.playSound('result');
     diemSo = widget.diemSo;
-    tongSoCauHoi = widget.tongSoCauHoi;
     path = check_huyChuong();
+    nextLocation = next_Location();
     if (widget.location == "Bắc") {
       _location = "bac";
     }
@@ -69,33 +69,64 @@ class _ResultPageState extends State<ResultPage> {
             children: <Widget>[
               const Text(
                 'Điểm của bạn:',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
-              Text(
-                '$diemSo/$tongSoCauHoi',
-                style: const TextStyle(
-                    fontSize: 32,
-                    color: Colors.green,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'Nhận huy hiệu miền ' '${widget.location}',
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              if (path != "")
-                Image.asset(
-                  path,
-                  width: 100,
-                  height: 100,
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  '$diemSo' '/10',
+                  style: const TextStyle(
+                      fontSize: 32,
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold),
                 ),
-              ElevatedButton(
+              ),
+              if (diemSo >= 8)
+                Column(
+                  children: [
+                    Text(
+                      'Nhận huy hiệu miền ' '${widget.location}',
+                      style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.yellow),
+                    ),
+                    Image.asset(
+                      path,
+                      width: 100,
+                      height: 100,
+                    ),
+                  ],
+                )
+              else
+                const Column(
+                  children: [
+                    Text(
+                      'Cố lên!',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ],
+                ),
+              SizedBox(
+                height: 50,
+              ),
+              ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HoiDapPage("Bắc")));
+                  nextLocation != ""
+                      ? Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => HoiDapPage(nextLocation)))
+                      : Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => HoiDapPage("Bắc")));
                   // Truyền giá trị diemSo và tongSoCauHoi khi chuyển sang trang HoiDapPage
                 },
-                child: Text('Chơi Lại'),
+                icon: Icon(Icons.next_plan),
+                label: const Text('Địa điểm tiếp theo'),
               ),
             ],
           ),
@@ -110,6 +141,16 @@ class _ResultPageState extends State<ResultPage> {
     diemSo += prefs.getInt('sum_score') ?? 0;
     prefs.setInt('sum_score', diemSo);
     prefs.setBool(_location, true);
+  }
+
+  String next_Location() {
+    if (widget.location == "Bắc") {
+      return "Trung";
+    }
+    if (widget.location == "Trung") {
+      return "Nam";
+    }
+    return "End";
   }
 
   String check_huyChuong() {

@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:second_app/screens/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../repository/user.dart';
 import 'navigationbar.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -41,34 +42,18 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  Future<Map<String, dynamic>> getUserInfoFromPrefs() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String userName = prefs.getString('userName') ?? "";
-    int userAge = prefs.getInt('userAge') ?? 0;
-    String userGender = prefs.getString('userGender') ?? "";
-    int sum_score = prefs.getInt('sum_score') ?? 0;
-    bool mendal_bac = prefs.getBool('bac') ?? false;
-    bool mendal_trung = prefs.getBool('trung') ?? false;
-    bool mendal_nam = prefs.getBool('nam') ?? false;
-
-    return {
-      'userName': userName,
-      'userAge': userAge,
-      'userGender': userGender,
-      'sum_score': sum_score,
-      'bac': mendal_bac,
-      'trung': mendal_trung,
-      'nam': mendal_nam
-    };
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow.shade50,
+      appBar: AppBar(
+        backgroundColor: Colors.orangeAccent,
+        title: const Text('Trang cá nhân'),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg.jpg'),
+            image: AssetImage('assets/images/profile.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -83,20 +68,29 @@ class _ProfilePageState extends State<ProfilePage> {
               Map<String, dynamic> userInfo = snapshot.data!;
               return ListView(
                 children: [
-                  const SizedBox(
+                   const SizedBox(
                     height: 50,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Stack(children: [
-                        CircleAvatar(
-                          radius: 50.0,
-                          backgroundImage: avatarPath.isEmpty
-                              ? const AssetImage(
-                                  'assets/images/user.png') // Ảnh mặc định nếu không có avatar
-                              : Image.file(File(avatarPath))
-                                  .image, // Hiển thị ảnh từ đường dẫn đã lưu
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius:  BorderRadius.circular(360),
+                            border: Border.all(
+                              color: Colors.orange,
+                              width: 5.0,
+                            ),
+                          ),
+                          child: CircleAvatar(
+                            radius: 50.0,
+                            backgroundImage: (avatarPath.isEmpty|| avatarPath == "")
+                                ? const AssetImage(
+                                    'assets/images/user.png') // Ảnh mặc định nếu không có avatar
+                                : Image.file(File(avatarPath))
+                                    .image, // Hiển thị ảnh từ đường dẫn đã lưu
+                          ),
                         ),
                         Positioned(
                           bottom: -10,
@@ -121,20 +115,22 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       const SizedBox(height: 8.0),
-                      Text(
-                        'Tuổi: ${userInfo['userAge']}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      const SizedBox(height: 8.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.people),
+                          const Icon(Icons.people,color: Colors.white,),
                           Text(
                             ' Giới Tính: ${userInfo['userGender']}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Tuổi: ${userInfo['userAge']}',
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 18.0,
@@ -146,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.sports_score),
+                          const Icon(Icons.sports_score,color: Colors.white,),
                           Text(
                             'Điểm Số: ${userInfo['sum_score']}',
                             style: const TextStyle(
@@ -156,65 +152,95 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Visibility(
-                              visible: userInfo['bac'],
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/huychuong1.png",
-                                    width: 100,
-                                    height: 100,
-                                  ),
-                                  const Text(
-                                    "Bắc",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: Colors.white),
-                                  )
-                                ],
-                              )),
-                          Visibility(
-                              visible: userInfo['trung'],
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/huychuong2.png",
-                                    width: 100,
-                                    height: 100,
-                                  ),
-                                  const Text(
-                                    "Trung",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: Colors.red
+                      const Text(
+                        "Thành tích: ",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.yellow,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white38, // Màu đen
+                            width: 5.0, // Độ dày 2px
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: RadialGradient(
+                            colors: [
+                              Colors.deepPurple.shade900,
+                              Colors.indigo.shade900,
+                            ],
+                            stops: const [0.0, 1.0],
+                            center: Alignment.center,
+                            radius: 1.0,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Visibility(
+                                visible: !userInfo['trung']&&!userInfo['nam']&&!userInfo['nam'],
+                                child:Text("Chưa có huy hiệu nào",
+                                  style:TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white) ,)
+                            ),
+                            Visibility(
+                                visible: userInfo['bac'],
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/huychuong1.png",
+                                      width: 100,
+                                      height: 100,
                                     ),
-                                  )
-                                ],
-                              )),
-                          Visibility(
-                              visible: userInfo['nam'],
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/huychuong3.png",
-                                    width: 100,
-                                    height: 100,
-                                  ),
-                                  const Text(
-                                    "Nam",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: Colors.yellow),
-                                  )
-                                ],
-                              )),
-                        ],
+                                    const Text(
+                                      "Bắc",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.greenAccent),
+                                    )
+                                  ],
+                                )),
+                            Visibility(
+                                visible: userInfo['trung'],
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/huychuong2.png",
+                                      width: 100,
+                                      height: 100,
+                                    ),
+                                    const Text(
+                                      "Trung",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.blue),
+                                    )
+                                  ],
+                                )),
+                            Visibility(
+                                visible: userInfo['nam'],
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/huychuong3.png",
+                                      width: 100,
+                                      height: 100,
+                                    ),
+                                    const Text(
+                                      "Nam",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.yellow),
+                                    )
+                                  ],
+                                )),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
