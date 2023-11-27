@@ -181,7 +181,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Visibility(
-                                visible: !userInfo['trung']&&!userInfo['nam']&&!userInfo['nam'],
+                                visible: !userInfo['trung']&&!userInfo['nam']&&!userInfo['bac'],
                                 child:Text("Chưa có huy hiệu nào",
                                   style:TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white) ,)
                             ),

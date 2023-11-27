@@ -52,6 +52,11 @@ flutter_native_splash:
   android: true
   ios: true
   web: false
+  android_12:
+    image: "assets/images/img_1.png"
+    icon_background_color: "#ff4081"
+    image_dark: "assets/images/img_1.png"
+    icon_background_color_dark: "#651fff"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
