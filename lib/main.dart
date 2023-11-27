@@ -4,7 +4,7 @@ import 'package:second_app/screens/register.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-
+  WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool hasUserData = prefs.getBool('hasUserData') ?? false;
 
