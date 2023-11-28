@@ -102,7 +102,7 @@ class _ResultPageState extends State<ResultPage> {
                   ],
                 )
               else
-                const Column(
+                Column(
                   children: [
                     Text(
                       'Cố lên!',
@@ -111,9 +111,18 @@ class _ResultPageState extends State<ResultPage> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
+                    ElevatedButton.icon(
+                        onPressed: () {
+
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HoiDapPage(widget.location)));
+
+                        },
+                        icon: Icon(Icons.repeat),
+                        label: Text("Chơi lại"))
                   ],
                 ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               ElevatedButton.icon(

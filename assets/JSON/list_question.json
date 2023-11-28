@@ -2,342 +2,347 @@
   {
     "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 2?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Chùa Bái Đính",
+      "Chùa Một Cột",
+      "Chùa Trấn Quốc",
+      "Chùa Thầy"
     ],
     "dapAnDung": 2,
-    "hinhAnh": "assets/images/chua1cot.jpg"
+    "hinhAnh": "assets/images/chuamotcot.jpg"
   },
   {
-    "cauHoi": "Câu 3?",
+    "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Cầu Thanh Trì",
+      "Cầu Nhật Tân",
+      "Cầu Long Biên",
+      "Cầu Vĩnh Tuy"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
+    "hinhAnh": "assets/images/caulongbien.jpg"
   },
   {
-    "cauHoi": "Câu 4?",
+    "cauHoi": "Đây là nơi có tuổi đời ngàn năm qua nhiều triều đại phong kiến?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Kinh thành Huế",
+      "Thành Nhà Hồ",
+      "Hoàng Thành Thăng Long",
+      "Hoàng thành Minh Mạng"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 5?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
-  },
-  {
-    "cauHoi": "Câu 6?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
+    "hinhAnh": "assets/images/hoangthanhthanglong.jpg"
   },
   {
     "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 2?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Nhà tù Sơn La",
+      "Nhà Tù Hỏa Lò",
+      "Nhà tù Côn Đảo",
+      "Nhà tù Phú Quốc"
     ],
     "dapAnDung": 2,
-    "hinhAnh": "assets/images/chua1cot.jpg"
+    "hinhAnh": "assets/images/nhatuhoalo.jpg"
   },
   {
-    "cauHoi": "Câu 3?",
+    "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Lăng Chủ tịch Hồ Chí Minh",
+      "Bảo Tàng Hồ Chí Minh",
+      "Tòa Quốc Hội",
+      "Tháp rùa"
+
+    ],
+    "dapAnDung": 1,
+    "hinhAnh": "assets/images/langbac.jpg"
+  },
+  {
+    "cauHoi": "Đây là một dòng suối được nhắc đến trong bài thơ Tức cảnh Pác Bó của Chủ tịch Hồ Chí Minh",
+    "luaChon": [
+      "Suối Yến",
+      "Suối Tiên",
+      "Suối Lê-nin",
+      "Suối Mơ"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
+    "hinhAnh": "assets/images/suoilenin.jpg"
   },
   {
-    "cauHoi": "Câu 4?",
+    "cauHoi": "Đây là địa danh nổi tiếng nào của tỉnh Phú Thọ ?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Đền Trần",
+      "Đền Lý",
+      "Đền Hùng",
+      "Đền Lê"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
+    "hinhAnh": "assets/images/denhung.jpg"
   },
   {
-    "cauHoi": "Câu 5?",
+    "cauHoi": "Trường đại họ đầu tiên ở việt nam ",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Văn Miếu Trấn Biên",
+      "Văn Miếu Nghệ An",
+      "Văn Miếu Quốc Tử Giám",
+      "Văn Miếu Hà Tĩnh"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
+    "hinhAnh": "assets/images/vanmieuquoctugiam.jpg"
   },
   {
-    "cauHoi": "Câu 6?",
+    "cauHoi": "Di sản thiên nhiên nào sau đây của nước ta được UNESCO công nhận ?",
     "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
+      "Vịnh Vĩnh Hy",
+      "Vịnh Nha Trang",
+      "Vịnh Hạ Long",
+      "Vịnh Cam Ranh"
     ],
     "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
+    "hinhAnh": "assets/images/vinhhalong.jpg"
   },
   {
     "cauHoi": "Đây là đâu ?",
     "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
+      "Hồ Tây",
+      "Hồ Trúc Bạch",
+      "Hồ Thanh Trì",
+      "Hồ Gươm"
     ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
+    "dapAnDung": 4,
+    "hinhAnh": "assets/images/hoguom.jpg"
   },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 2?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 2,
-    "hinhAnh": "assets/images/chua1cot.jpg"
-  },
-  {
-    "cauHoi": "Câu 3?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 4?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Câu 5?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
-  },
-  {
-    "cauHoi": "Câu 6?",
-    "luaChon": [
-      "Lựa chọn 1",
-      "Lựa chọn 2",
-      "Lựa chọn 3",
-      "Lựa chọn 4"
-    ],
-    "dapAnDung": 3,
-    "hinhAnh": "assets/images/chua1cot.jpg"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  },
-  {
-    "cauHoi": "Đây là đâu ?",
-    "luaChon": [
-      "Hello world",
-      "Answer 2",
-      "Vietnam",
-      "China"
-    ],
-    "dapAnDung": 1,
-    "hinhAnh": "assets/images/img.png"
-  }
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Cầu Thanh Trì",
+        "Cầu Nhật Tân",
+        "Cầu Sông Hàn",
+        "Cầu Vĩnh Tuy"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/causonghan.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Cầu Nhật Tân",
+        "Cầu sông Hàn",
+        "Cầu Rồng",
+        "Cầu Vĩnh Tuy"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/caurong.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Thành nhà Hồ",
+        "Hoàng Thành Thăng Long",
+        "Kinh thành Huế",
+        "Tử Cấm Thành"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/codohue.jpg"
+    },
+    {
+      "cauHoi": "Đây là khu di tích lịch sử nào của tỉnh Quảng Nam ?",
+      "luaChon": [
+        "Tháng điạ Mỹ Sơn",
+        "Tam Kỳ",
+        "Hội An",
+        "Điện Bàn"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/hoian.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Hoàng Thành Thăng Long",
+        "Kinh thành Hué",
+        "Thành Nhà Hồ",
+        "Thành cổ Quảng Trị"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/thanhnhaho.jpg"
+    },
+    {
+      "cauHoi": "Đâu là khu di tích lịch sử nổi tiếng của tỉnh Quảng Nam?",
+      "luaChon": [
+        "Chùa Bái Đính",
+        "Tòa Thánh Tây Ninh",
+        "Thánh Địa Mỹ Sơn",
+        "Chùa Hương"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/thanhdiamyson.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Động Thiên Đường",
+        "Động Tiên Sơn",
+        "Động Phong Nha",
+        "Động Tú Làn"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/phongnha.jpg"
+    },
+    {
+      "cauHoi": "Đây là di tích lịch sử nào? ",
+      "luaChon": [
+        "Ngã Tư Sở",
+        "Ngã Tư Ga",
+        "Ngã Ba Đồng Lộc",
+        "Ngã Tư Bình Phước"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/ngabadongloc.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Chùa Một Cột",
+        "Chùa Bái Đính",
+        "Chùa Cầu",
+        "Chùa Trấn Quốc"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/chuacau.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Vườn Quốc Gia Cát Tiên",
+        "Vườn Quốc Gia Cúc Phương",
+        "Vườn Quốc Gia Phong Nha–Kẻ Bàng",
+        "Vườn Quốc Gia Ba Vì"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/vuonquocgiaphongnhakebang.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Địa đạo Củ Chi",
+        "Địa đạo Vĩnh Mốc",
+        "Địa Đạo Vịnh Mốc",
+        "Địa đạo Tây Ninh"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/diadaovinhmoc.jpg"
+    },
+
+    {
+      "cauHoi": "Đây là 1 trong các lối vào nổi tiếng của địa đạo nào ?",
+      "luaChon": [
+        "Địa đạo Vịnh Mốc",
+        "Địa đạo Củ Chi",
+        "Địa đạo Vĩnh Mốc",
+        "Địa đạo Tây Ninh"
+      ],
+      "dapAnDung": 2,
+      "hinhAnh": "assets/images/diadaocuchi.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Nhà thờ Đức Bà",
+        "Nhà thờ Lớn Hà Nội",
+        "Tòa Thánh Tây Ninh",
+        "Chùa Bái Đính"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/toathanh.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Cảng Nhà Rồng",
+        "Cảng Vân Đồn",
+        "Cảng Hải Phòng",
+        "Cảng Bến Nghé"
+      ],
+      "dapAnDung": 1,
+      "hinhAnh": "assets/images/cangnharong.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Nhà khách Mường Thanh",
+        "Bảo tàng chiến tranh",
+        "Dinh Độc Lập",
+        "Bộ Quốc Phòng"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/dingdoclap.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Nhà tù Sơn La",
+        "Nhà tù Hỏa Lò",
+        "Nhà Tù Côn Đảo",
+        "Nhà tù Phú Quốc"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/nhatucondao.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Nhà tù Sơn La",
+        "Nhà tù Hỏa Lò",
+        "Nhà tù Côn Đảo",
+        "Nhà Tù Phú Quốc"
+      ],
+      "dapAnDung": 4,
+      "hinhAnh": "assets/images/nhatuphuquoc.jpg"
+    },
+    {
+      "cauHoi": "Đây là nơi diễn ra trận đánh lớn nhất miền Nam kể từ sau Hiệp định Giơ-ne-vơ",
+      "luaChon": [
+        "Di tích lịch sử Điện Biên Phủ",
+        "Di tích lịch sử Bến Tre",
+        "Di tích lịch sử Long Khánh",
+        "Di tích lịch sử Ấp Bắc"
+      ],
+      "dapAnDung": 4,
+      "hinhAnh": "assets/images/ditichchienthangapbac.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Bảo Tàng Chứng Tích Chiến Tranh",
+        "Bảo tàng Lịch sử Việt Nam",
+        "Bảo tàng Dân tộc học Việt Nam",
+        "Bảo Tàng Hồ Chí Minh"
+      ],
+      "dapAnDung": 4,
+      "hinhAnh": "assets/images/baotangchungtichchientranh.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Di tích Đồng Khởi Cần Thơ",
+        "Di tích Đồng Khởi Vĩnh Long",
+        "Di tích Đồng Khởi Bến Tre",
+        "Di tích Đồng Khởi Tiền Giang"
+      ],
+      "dapAnDung": 3,
+      "hinhAnh": "assets/images/ditichdongkhoibentre.jpg"
+    },
+    {
+      "cauHoi": "Đây là đâu ?",
+      "luaChon": [
+        "Chợ Đồng Xuân",
+        "Chợ Bà Chiểu",
+        "Chợ An Đông",
+        "Chợ Bến Thành"
+      ],
+      "dapAnDung": 4,
+      "hinhAnh": "assets/images/chobenthanh.jpg"
+    }
+
+
+
 ]

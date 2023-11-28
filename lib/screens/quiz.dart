@@ -94,7 +94,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
                     child: Center(
                       child: AnimatedDefaultTextStyle(
                         style: TextStyle(
-                          fontSize: !model.isCorrect ? 20 : 24,
+                          fontSize: !model.isCorrect ? 20 : 22,
                           color: !model.isCorrect ? Colors.white : Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -130,11 +130,11 @@ class _HoiDapPageState extends State<HoiDapPage> {
                     child: ListView(
                       children: <Widget>[
                         Container(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
                             'Câu hỏi ${model.count+1}: ${cauHoi.cauHoi}',
                             style: const TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+                                fontSize: 22, fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -156,7 +156,7 @@ class _HoiDapPageState extends State<HoiDapPage> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 2.0,
+                            childAspectRatio: 1.5,
                           ),
                           shrinkWrap: true,
                           itemCount: 4,
@@ -164,13 +164,15 @@ class _HoiDapPageState extends State<HoiDapPage> {
                             return Container(
                               color: model.color_answer[i],
                               margin: const EdgeInsets.all(8.0),
-                              child: ListTile(
-                                title: Text(cauHoi.luaChon[i]),
-                                onTap: () {
-                                  model.xuLyTraLoi(
-                                      i + 1, danhSachCauHoi[model.cauHienTai]);
-                                  setState(() {});
-                                },
+                              child: Center(
+                                child: ListTile(
+                                  title: Text(cauHoi.luaChon[i],style: TextStyle(fontWeight: FontWeight.bold),),
+                                  onTap: () {
+                                    model.xuLyTraLoi(
+                                        i + 1, danhSachCauHoi[model.cauHienTai]);
+                                    setState(() {});
+                                  },
+                                ),
                               ),
                             );
                           },
