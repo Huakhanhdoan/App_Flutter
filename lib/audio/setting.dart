@@ -37,9 +37,9 @@ class _SoundSettingState extends State<SoundSetting> {
         color: Colors.green.shade50,
         child: Column(
           children: <Widget>[
-            const SizedBox(height: 50,),
+             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding:  EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -133,6 +133,7 @@ class _SoundSettingState extends State<SoundSetting> {
             ),
             Image.asset(
               "assets/images/setting.gif",
+                height: MediaQuery.of(context).size.height * 0.3,
               // height: 100.0,
               // width: 100.0,
             ),

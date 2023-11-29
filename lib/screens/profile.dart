@@ -53,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/profile.png'),
+            image: AssetImage('assets/images/bg_profile.jpg'),
             fit: BoxFit.cover,
           ),
         ),

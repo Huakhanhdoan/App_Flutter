@@ -43,24 +43,38 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Stack(
-
-          children: [
-            Center(
-              child: LinearProgressIndicator(value: animation.value,
-                  color: Colors.green,minHeight: 25,
-                  borderRadius: BorderRadius.circular(20.0),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+              Image.asset(
+                'assets/images/nv_run.gif',
+                width: 50,
+                height: 50,
               ),
-            ),
-             Center(child:
-             DefaultTextStyle(
-               style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-               child: Text('Loading: $percentage%' ),
-             ),
-             )
+              const SizedBox(height: 10,),
+              Stack(
+
+                children: [
+
+                  Center(
+                    child: LinearProgressIndicator(value: animation.value,
+                        color: Colors.green,minHeight: 25,
+                        borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                   Center(child:
+                   DefaultTextStyle(
+                     style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                     child: Text('Loading: $percentage%' ),
+                   ),
+                   )
 
 
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

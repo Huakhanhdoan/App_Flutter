@@ -5,6 +5,7 @@ import 'package:second_app/model/quiz_model.dart';
 import 'package:second_app/screens/result.dart';
 
 import '../audio/audio.dart';
+import 'navigationbar.dart';
 
 class HoiDapPage extends StatefulWidget {
    final String Location;
@@ -130,14 +131,14 @@ class _HoiDapPageState extends State<HoiDapPage> {
                     child: ListView(
                       children: <Widget>[
                         Container(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.fromLTRB(20.0,0,0,0),
                           child: Text(
                             'Câu hỏi ${model.count+1}: ${cauHoi.cauHoi}',
                             style: const TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 10),
                         Container(
                           margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
                           width: 350.0,
@@ -151,12 +152,12 @@ class _HoiDapPageState extends State<HoiDapPage> {
                           ),
                           // child: Image.asset(cauHoi.hinhAnh),
                         ),
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 15),
                         GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 1.5,
+                            childAspectRatio: 1.7,
                           ),
                           shrinkWrap: true,
                           itemCount: 4,
@@ -191,13 +192,14 @@ class _HoiDapPageState extends State<HoiDapPage> {
                       label: const Text('Câu tiếp theo'),
                     ),
                   ),
-                  const SizedBox(height: 40),
+                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 ],
               ),
             ),
           ),
         ],
       ),
+      bottomNavigationBar: NavigationBar1(),
     );
   }
 }
