@@ -17,8 +17,9 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.0' # Bạn có thể thay đổi phiên bản này theo ý muốn
-
+          flutter-version: '3.3.0' # Bạn có thể thay đổi phiên bản này theo ý muốn
+      - name: Update Flutter
+        run: flutter upgrade
       - name: Install dependencies
         run: dart pub get
 
