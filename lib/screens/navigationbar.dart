@@ -22,7 +22,7 @@ class _NavigationBar1State extends State<NavigationBar1> {
 
 
           IconButton(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.menu, ),
             onPressed: ()  {
               _audioManager.playSound("click");
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
